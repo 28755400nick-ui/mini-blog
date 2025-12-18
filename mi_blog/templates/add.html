@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+
+{% block title %}Agregar Post - Mini Blog{% endblock %}
+
+{% block content %}
+
+  <h1>Agregar nuevo post</h1>
+  
+  {% if error %}
+    <div style="color: red; background-color: #ffe6e6; padding: 10px; border-radius: 5px; margin: 20px auto; max-width: 600px; text-align: center;">
+      {{ error }}
+    </div>
+  {% endif %}
+
+  <div class="main-form">
+    <form action="/add" method="POST" class="main-form" enctype="multipart/form-data">
+      <label for="category">Categoría:</label>
+      <input type="text" name="category" id="category" placeholder="Ej: Tecnología">
+
+      <label for="tags">Etiquetas:</label>
+      <input type="text" name="tags" id="tags" placeholder="Ej: Python, Flask, Web">
+
+      <label for="title">Título:</label>
+      <input type="text" name="title" id="title" placeholder="Título del post" required>
+
+      <label for="content">Contenido:</label>
+      <textarea name="content" id="content" rows="5" placeholder="Escribe el contenido aquí..." required></textarea>
+
+      <label for="image">Imagen:</label>
+      <input type="file" name="image" id="image" accept="image/*">  
+
+      <button type="submit">Publicar</button>
+    </form>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="/" class="btn-agregar" style="background-color: #6c757d; text-decoration: none;">← Volver al inicio</a>
+  </div>
+{% endblock %}

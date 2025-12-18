@@ -1,0 +1,438 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Verdana, Geneva, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: #007bff;
+}
+
+a.btn-agregar {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+a.btn-agregar:hover {
+  background-color: #218838;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+li h2 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+li h2 a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+li p {
+  margin: 10px 0;
+}
+
+li small {
+  color: #888;
+  font-size: 0.9em;
+}
+
+form.inline {
+  display: inline;
+}
+
+.main-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.main-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #555;
+}
+
+.main-form input[type="text"],
+.main-form input[type="file"],
+.main-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.main-form input[type="file"] {
+  padding: 8px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+form.main-form button,
+.main-form button {
+  margin-top: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form.main-form button:hover,
+.main-form button:hover {
+  background-color: #218838;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+form:last-child button {
+  background-color: #c82333;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.main-form h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.card-post {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-post h2 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+.card-post h2 a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.image-post {
+  display: block;
+  margin: 20px auto;
+  max-width: 500px;
+  max-height: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.image-post:hover {
+  transform: scale(1.02);
+}
+
+.search-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #218838;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.tag-chip {
+  display: inline-block;
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 5px 10px;
+  margin: 3px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.tag-chip:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.btn-eliminar:hover {
+  background-color: #c82333;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.main-header h1 {
+  margin: 0;
+}
+
+/* ========== MODO OSCURO ========== */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+  padding-top: 60px;
+}
+
+/* Títulos en modo oscuro */
+body.dark-mode h1 {
+  color: #f1f1f1;
+}
+
+body.dark-mode h2 {
+  color: #bb86fc;
+}
+
+body.dark-mode li h2,
+body.dark-mode .card-post h2 {
+  color: #bb86fc;
+}
+
+body.dark-mode li h2 a,
+body.dark-mode .card-post h2 a {
+  color: #bb86fc;
+}
+
+body.dark-mode li h2 a:hover,
+body.dark-mode .card-post h2 a:hover {
+  color: #d4a9ff;
+}
+
+/* Tarjetas del post */
+body.dark-mode li,
+body.dark-mode .card-post {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #f1f1f1;
+}
+
+/* Texto pequeño */
+body.dark-mode small,
+body.dark-mode li small {
+  color: #b0b0b0;
+}
+
+/* Campos del formulario */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark-mode .main-form input[type="file"] {
+  background-color: #2a2a2a;
+}
+
+/* Etiquetas */
+body.dark-mode label {
+  color: #f1f1f1;
+}
+
+/* Botones */
+body.dark-mode button,
+body.dark-mode .btn-agregar {
+  background-color: #333;
+  color: #f1f1f1;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark-mode button:hover,
+body.dark-mode .btn-agregar:hover {
+  background-color: #555;
+}
+
+/* Contenedor del formulario */
+body.dark-mode .main-form {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .main-form h1 {
+  color: #f1f1f1;
+}
+
+/* Campos del formulario en modo oscuro */
+body.dark-mode .main-form input,
+body.dark-mode .main-form textarea,
+body.dark-mode .main-form select {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark-mode .main-form label {
+  color: #f1f1f1;
+}
+
+body.dark-mode .main-form button {
+  background-color: #3cb371;
+}
+
+body.dark-mode .main-form button:hover {
+  background-color: #2e8b57;
+}
+
+/* Tags en modo oscuro */
+body.dark-mode .tag-chip {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark-mode .tag-chip:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Header en modo oscuro */
+body.dark-mode .main-header {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .main-header h1 {
+  color: #f1f1f1;
+}
+
+@media (max-width: 768) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-header h1 {
+    font-size: 1.5em;
+  }
+
+  #toggle-dark {
+    margin-top: 10px;
+  }
+
+  .card-post {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .image-post {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .main-form {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .main-form input,
+  .main-form textarea {
+    font-size: 1em;
+  }
+
+  .btn-agregar,
+  .btn-eliminar {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+}

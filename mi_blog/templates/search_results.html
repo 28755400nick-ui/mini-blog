@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Agregar Post - Mini Blog{% endblock %}
+  
+{% block content %}
+  
+  <a href="{{ url_for('home') }}" class="btn-agregar">Volver</a>
+
+  <h1>Resultados para "{{ query }}"</h1>
+
+  {% if results %}
+    {% for post in results %}
+      <div class="card-post">
+        <h2>
+          <a href="{{ url_for('post_detail', id=post.id) }}" style="color: #007bff; text-decoration: none;">
+            {{ post.title }}
+          </a>
+        </h2>
+        <small>Publicado el {{ post.created_at.strftime('%d/%m/%Y %H:%M') }}</small>
+        <p>{{ post.content }}</p>
+        {% if post.image_url %}
+          <img src="{{ url_for('static', filename='uploads/' ~ post.image_url) }}" class="image-post">
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No se encontraron posts que coincidan con tu búsqueda.</p>
+  {% endif %}
+{% endblock %}

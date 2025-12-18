@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Agregar Post - Mini Blog{% endblock %}
+  
+{% block content %}
+  
+  <h1>Editar Post</h1>
+  
+  {% if error %}
+    <div style="color: red; background-color: #ffe6e6; padding: 10px; border-radius: 5px; margin: 20px auto; max-width: 600px; text-align: center;">
+      {{ error }}
+    </div>
+  {% endif %}
+
+  <div class="main-form">
+    <form action="/edit/{{post.id}}" method="POST" class="main-form" enctype="multipart/form-data">
+      <label for="category">Categoría:</label>
+      <input type="text" name="category" id="category" placeholder="Ej: Tecnología">
+
+      <label for="tags">Etiquetas:</label>
+      <input type="text" name="tags" id="tags" placeholder="Ej: Python, Flask, Web">
+      
+      <label for="title">Título:</label>
+      <input type="text" name="title" id="title" value="{{post.title}}" required>
+
+      <label for="content">Contenido:</label>
+      <textarea name="content" id="content" rows="5" required>{{post.content}}</textarea>
+
+      <label for="image">Imagen:</label>
+      {% if post.image_url %}
+        <p style="margin: 5px 0; color: #28a745;">
+          📎 Imagen actual: <a href="{{ url_for('static', filename='uploads/' ~ post.image_url) }}" target="_blank">Ver imagen</a>
+        </p>
+        <small style="color: #888; display: block; margin-bottom: 5px;">Subir una nueva imagen reemplazará la actual</small>
+      {% endif %}
+      <input type="file" name="image" id="image" accept="image/*">
+
+      <button type="submit">Guardar cambios</button>
+    </form>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="/" class="btn-agregar" style="background-color: #6c757d; text-decoration: none;">← Volver al inicio</a>
+  </div>
+{% endblock %}

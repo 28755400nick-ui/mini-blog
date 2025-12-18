@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Agregar Post - Mini Blog{% endblock %}
+    
+{% block content %}
+    
+    <h2>{{ post.title }}</h2>
+    {% if post.tags %}
+    <p><strong>Etiquetas:</strong></p>
+    <div class="tags">
+      {% for tag in post.tags.split(",") %}
+        <a href="{{ url_for('search', q=tag.strip()) }}" class="tag-chip">{{ tag.strip() }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if post.created_at %}
+      <small>Publicado el {{ post.created_at.strftime('%d/%m/%Y %H:%M') }}</small>
+    {% endif %}
+    <p>{{ post.content }}</p>
+
+    {% if post.image_url %}
+      <img src="{{ url_for('static', filename='uploads/' ~ post.image_url) }}" alt="Imagen del post {{ post.title }}" class="image-post">
+    {% else %}
+      <img src="{{ url_for('static', filename='uploads/default.jpg') }}" alt="Imagen por defecto" class="image-post">
+    {% endif %}
+
+    <div style="margin-top: 15px;">
+      <form action="/edit/{{post.id}}" method="get" style="display: inline;">
+        <button type="submit">Editar</button>
+      </form>
+      <form action="/delete/{{post.id}}" method="get" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este post?');">
+        <button type="submit">Eliminar</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

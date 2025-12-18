@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Agregar Post - Mini Blog{% endblock %}
+  
+{% block content %}
+    <h2>Iniciar Sesión</h2>
+    <p style="text-align:center; color:#888;">
+      Usuario demo: <strong>{{ demo_user }}</strong> |
+      Contraseña: <strong>{{ demo_pass }}</strong>
+    </p>  
+    <form action="{{ url_for('login') }}" method="POST" class="main-form">
+        <label for="username">Usuario:</label>
+        <input type="text" name="username" id="username" required>
+    
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" id="password" required>
+    
+        <button type="submit">Entrar</button>
+      </form>    
+{% endblock %}
