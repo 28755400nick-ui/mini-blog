@@ -17,7 +17,6 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'tu-clave-secreta-aqui-cambiala-por-una-segura'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = "supersecreto"
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -174,19 +173,22 @@ def search():
     from sqlalchemy import func
     
     query_lower = query.lower()
-    results = Post.query.filter(
-        db.or_(
-            func.lower(Post.title).like(f"%{query_lower}%"),
-            func.lower(Post.content).like(f"%{query_lower}%"),
-            func.lower(Post.category).like(f"%{query_lower}%") if Post.category else False,
-            func.lower(Post.tags).like(f"%{query_lower}%") if Post.tags else False
-        )
-    ).all()
+    # CORREGIDO: Manejar campos None correctamente
+    conditions = [
+        func.lower(Post.title).like(f"%{query_lower}%"),
+        func.lower(Post.content).like(f"%{query_lower}%")
+    ]
+    
+    # Solo agregar condiciones si los campos pueden tener valores
+    conditions.append(func.lower(Post.category).like(f"%{query_lower}%"))
+    conditions.append(func.lower(Post.tags).like(f"%{query_lower}%"))
+    
+    results = Post.query.filter(db.or_(*conditions)).all()
     return render_template("search_results.html", results=results, query=query)
 
 if __name__ == "__main__":
-    app.run(debug=True)  
-
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
 
 
 
